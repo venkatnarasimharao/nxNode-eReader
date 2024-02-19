@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve --watch",
+    "start:uat": "nx run nx-node-ereader:serve:uat --watch",
+    "start:prod": "nx run nx-node-ereader:serve:prod --watch",
     "build": "nx build",
     "test": "nx test"
   },

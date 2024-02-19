@@ -25,8 +25,16 @@
         }
       },
       "configurations": {
-        "development": {},
-        "production": {
+        "dev": {},
+        "uat": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "prod": {
           "esbuildOptions": {
             "sourcemap": false,
             "outExtension": {
@@ -38,16 +46,19 @@
     },
     "serve": {
       "executor": "@nx/js:node",
-      "defaultConfiguration": "development",
+      "defaultConfiguration": "dev",
       "options": {
         "buildTarget": "nx-node-ereader:build"
       },
       "configurations": {
-        "development": {
-          "buildTarget": "nx-node-ereader:build:development"
+        "dev": {
+          "buildTarget": "nx-node-ereader:build:dev"
         },
-        "production": {
-          "buildTarget": "nx-node-ereader:build:production"
+        "uat": {
+          "buildTarget": "nx-node-ereader:build:uat"
+        },
+        "prod": {
+          "buildTarget": "nx-node-ereader:build:prod"
         }
       }
     }

@@ -5,7 +5,6 @@ dist
 tmp
 .vscode
 /out-tsc
-.env
 
 # package directories
 node_modules

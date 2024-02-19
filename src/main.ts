@@ -17,8 +17,8 @@ app.get('/get/users/list', getAllUsers)
 app.listen(port, host, () => {
   console.log(`[ ready ] http://${host}:${port}`);
 
-   // Log a message when MongoDB connection is established
-   db.once('open', () => {
+  // Log a message when MongoDB connection is established
+  db.once('open', () => {
     console.log('MongoDB connection established successfully');
   });
 });
