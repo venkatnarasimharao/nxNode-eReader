@@ -26,6 +26,6 @@ const UserSchema: Schema = new Schema(
     timestamps: true // auto - creates (updated_at and created_at in mongoos)
   });
 
-const user: Model<IUser> = model<IUser>('user', UserSchema);
+const user: Model<IUser> = model<IUser>('users', UserSchema);
 
 export default user
