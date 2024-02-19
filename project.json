@@ -61,6 +61,14 @@
           "buildTarget": "nx-node-ereader:build:prod"
         }
       }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{projectRoot}/coverage/nx-node-ereader"],
+      "options": {
+        "jestConfig": "{projectRoot}/jest.config.ts",
+        "passWithNoTests": true
+      }
     }
   },
   "tags": []
