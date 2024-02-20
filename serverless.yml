@@ -1,0 +1,53 @@
+service: e-reader-user-list
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'd-b'}
+  region: us-east-1
+  memorySize: ${file(src/config/serverless/config.${self:provider.stage}.json):memorySize}
+  timeout: ${file(src/config/serverless/config.${self:provider.stage}.json):timeout}
+  tags:
+    AP_namespace: ap-pe
+    Environment: ${file(src/config/serverless/config.${self:provider.stage}.json):ENV}
+
+# Add configValidationMode to service configuration
+configValidationMode: error
+
+functions:
+  app:
+    handler: dist/e-reader/src/main.handler
+    description: 'Lambda function to run node server'
+    name: 'lmb-use-discovery-client-ubx-website-e-reader'
+    reservedConcurrency: ${file(src/config/serverless/config.${self:provider.stage}.json):reservedConcurrency}
+    package:
+      individually: true
+      patterns:
+        - dist/**
+        - 'node_modules/**'
+        - '!.git/**'
+        - '!.nx/**'
+        - '!.vscode/**'
+        - '!coverage/**'
+        - '!e2e/**'
+        - '!src/**'
+        - '!tmp/**'
+        - '!.env/**'
+        - '!.env.prod/**'
+        - '!.env.uat/**'
+        - '!.eslintignore'
+        - '!.eslintrc.json'
+        - '!.gitignore'
+        - '!.prettierignore'
+        - '!.prettierrc'
+        - '!jest.config.ts'
+        - '!jest.preset.js'
+        - '!nx.json'
+        - '!package-lock.json'
+        - '!README.md'
+    environment:
+      ENV: ${file(src/config/serverless/config.${self:provider.stage}.json):ENV}
+      MONGO_URL: ${file(src/config/serverless/config.${self:provider.stage}.json):MONGO_URL}
+    # role: ${file(src/config/serverless/config.${self:provider.stage}.json):DEFAULT_IAM_ROLE}
+    events:
+      - http: ANY /

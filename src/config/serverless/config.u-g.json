@@ -1,0 +1,9 @@
+{
+  "ENV": "uat",
+  "DEFAULT_IAM_ROLE": "arn:aws:iam::559299563838:role/e-reader-getuserlist-u-g-us-east-1-lambdaRole",
+  "MONGO_URL": "mongodb+srv://venkatanarasimharao:TcGepnt3JHR2zp04@cluster0.dl2b1yb.mongodb.net/ereader?retryWrites=true&w=majority",
+  "memorySize": 1024,
+  "timeout": 600,
+  "reservedConcurrency": 5,
+  "MaximumMessageSize": 262144
+}

@@ -1,5 +1,5 @@
 {
-  "name": "nx-node-ereader",
+  "name": "e-reader",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "src",
   "projectType": "application",
@@ -7,10 +7,10 @@
     "build": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+      "defaultConfiguration": "uat",
       "options": {
         "platform": "node",
-        "outputPath": "dist/nx-node-ereader",
+        "outputPath": "dist/e-reader",
         "format": ["cjs"],
         "bundle": false,
         "main": "src/main.ts",
@@ -48,23 +48,23 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "dev",
       "options": {
-        "buildTarget": "nx-node-ereader:build"
+        "buildTarget": "e-reader:build"
       },
       "configurations": {
         "dev": {
-          "buildTarget": "nx-node-ereader:build:dev"
+          "buildTarget": "e-reader:build:dev"
         },
         "uat": {
-          "buildTarget": "nx-node-ereader:build:uat"
+          "buildTarget": "e-reader:build:uat"
         },
         "prod": {
-          "buildTarget": "nx-node-ereader:build:prod"
+          "buildTarget": "e-reader:build:prod"
         }
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{projectRoot}/coverage/nx-node-ereader"],
+      "outputs": ["{projectRoot}/coverage/e-reader"],
       "options": {
         "jestConfig": "{projectRoot}/jest.config.ts",
         "passWithNoTests": true

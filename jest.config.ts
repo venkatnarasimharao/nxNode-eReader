@@ -1,6 +1,6 @@
 export default {
-  coverageDirectory: './coverage/nx-node-ereader',
-  displayName: 'nx-node-ereader',
+  coverageDirectory: './coverage/e-reader',
+  displayName: 'e-reader',
   preset: './jest.preset.js',
   setupFiles: ['<rootDir>/src/test-setup.ts'],
   testEnvironment: 'node',
